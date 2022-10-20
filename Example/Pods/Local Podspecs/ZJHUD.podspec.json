@@ -1,0 +1,38 @@
+{
+  "name": "ZJHUD",
+  "version": "0.1.0",
+  "summary": "A short description of ZJHUD.",
+  "homepage": "https://github.com/zhang232425/ZJHUD",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhang232425": "519301084@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhang232425/ZJHUD.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ZJHUD/Classes/**/*",
+  "resource_bundles": {
+    "ZJHUD": [
+      "ZJHUD/Assets/**/*"
+    ]
+  },
+  "static_framework": true,
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "ZJExtension": [
+
+    ],
+    "NVActivityIndicatorView": [
+
+    ]
+  }
+}

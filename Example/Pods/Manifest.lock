@@ -1,0 +1,41 @@
+PODS:
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - SnapKit (5.6.0)
+  - ZJExtension (0.1.0)
+  - ZJHUD (0.1.0):
+    - NVActivityIndicatorView
+    - SnapKit
+    - ZJExtension
+
+DEPENDENCIES:
+  - "ZJExtension (from `git@github.com:zhang232425/ZJExtension.git`, branch `main`)"
+  - ZJHUD (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - NVActivityIndicatorView
+    - SnapKit
+
+EXTERNAL SOURCES:
+  ZJExtension:
+    :branch: main
+    :git: "git@github.com:zhang232425/ZJExtension.git"
+  ZJHUD:
+    :path: "../"
+
+CHECKOUT OPTIONS:
+  ZJExtension:
+    :commit: b2e632dcc571e7e01df08ac0acdd96abe809a1c9
+    :git: "git@github.com:zhang232425/ZJExtension.git"
+
+SPEC CHECKSUMS:
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  ZJExtension: 6e48c70d2ef42959bbfd257a98bc8b2e96fe6c12
+  ZJHUD: 4fbcfb22b6984b986fe90490bfdd6b806ae75696
+
+PODFILE CHECKSUM: 236216cc508bf54b38710384b16f98f14b5ccb62
+
+COCOAPODS: 1.11.2
