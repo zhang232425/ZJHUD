@@ -32,6 +32,82 @@ public final class ZJHUD {
     
 }
 
+public extension ZJHUD {
+    
+    static func showProgress(in view: UIView? = UIApplication.shared.keyWindow, type: HUDType = .default) {
+        let hud = ZJHUDView()
+        if case .dimBackground(let color) = type {
+            hud.dimBackground = true
+            hud.dimBackgroundColor = color
+        }
+        shared.hud?.hide()
+        shared.hud = hud
+        hud.showProgress(in: view)
+    }
+    
+    static func showProgress(message: String?, in view: UIView? = UIApplication.shared.keyWindow, type: HUDType = .default) {
+        let hud = ZJHUDView()
+        if case .dimBackground(let color) = type {
+            hud.dimBackground = true
+            hud.dimBackgroundColor = color
+        }
+        hud.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        shared.hud?.hide()
+        shared.hud = hud
+        hud.showProgress(message: message, in: view)
+    }
+    
+    static func show(message: String?, in view: UIView? = UIApplication.shared.keyWindow) {
+        let toast = ZJHUDView()
+        shared.toast?.hide()
+        shared.toast = toast
+        toast.show(message: message, image: nil, in: view)
+    }
+    
+    //吐司成功
+    static func showSuccess(message: String?, image: UIImage? = nil , delay: TimeInterval = 2, in view: UIView? = UIApplication.shared.keyWindow) {
+        let toast = ZJHUDView()
+        shared.toast?.hide()
+        shared.toast = toast
+        let showImage = image ?? UIImage.named("toast_success")
+        toast.show(message: message, image: showImage, in: view)
+        toast.hide(afterDelay: delay)
+    }
+    
+    //吐司提示
+    static func showTip(message: String?, image: UIImage? = nil , delay: TimeInterval = 2, in view: UIView? = UIApplication.shared.keyWindow) {
+        let showImage = image ?? UIImage.named("toast_tip")
+        showSuccess(message: message, image: showImage, delay: delay, in: view)
+    }
+    
+    static func hideProgress(afterDelay delay: TimeInterval = 0) {
+        delay > 0 ? shared.hud?.hide(afterDelay: delay) : shared.hud?.hide()
+    }
+    
+    static func hideMessage(afterDelay delay: TimeInterval = 0) {
+        delay > 0 ? shared.toast?.hide(afterDelay: delay) : shared.toast?.hide()
+    }
+    
+    //吐司
+    static func noticeOnlyText(_ text: String?, delay: TimeInterval = 2) {
+        let toast = ZJHUDView()
+        shared.toast?.hide()
+        shared.toast = toast
+        toast.show(message: text, image: nil)
+        toast.hide(afterDelay: delay)
+    }
+    
+    //底部吐司
+    static func noticeOnlyTextBottom(_ text: String?, delay: TimeInterval = 2) {
+        let toast = ZJHUDView()
+        shared.toast?.hide()
+        shared.toast = toast
+        toast.show(message: text, image: nil, position: .bottom)
+        toast.hide(afterDelay: delay)
+    }
+    
+}
+
 public final class ZJHUDView: UIView {
     
     private lazy var indicatorView = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin)
